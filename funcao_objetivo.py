@@ -48,7 +48,6 @@ def funcao_objetivo(lista_adjacencia, vertices, solucao, tipo_recurso, delta, T)
             interferencias[v] = (r, delta)
     
     s = []
-    somatorio = 0
     for vertice in vertices:
         tempos = dijkstra_com_interferencia(lista_adjacencia, interferencias, vertice)
         s.append(resultado(tempos, T))
