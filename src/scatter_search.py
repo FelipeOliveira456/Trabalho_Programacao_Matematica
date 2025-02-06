@@ -373,16 +373,22 @@ parser.add_argument("--ref_prop", type=float)
 parser.add_argument("--it_scatter", type=int)
 args = parser.parse_args()
 
-if args.it_improv < 1:
+if args.input is None:
+    print("--input: caminho do arquivo de entrada faltando")
+    sys.exit(1)
+if args.output is None:
+    print("--output: caminho do arquivo de saída faltando")
+    sys.exit(1)
+if args.it_improv is None or args.it_improv < 1:
     print("--it_improv deve receber um valor positivo")
     sys.exit(1)
-if args.ref_size < 1:
+if args.ref_size is None or args.ref_size < 1:
     print("--it_improv deve receber um valor positivo")
     sys.exit(1)
-if not (0 <= args.ref_prop <= 1):
+if args.ref_prop is None or not (0 <= args.ref_prop <= 1):
     print("--ref_prop deve receber um valor entre 0 e 1")
     sys.exit(1)
-if args.it_scatter < 1:
+if args.it_scatter is None or args.it_scatter < 1:
     print("--it_scatter deve receber um valor positivo")
     sys.exit(1)
    
